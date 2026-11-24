@@ -16,6 +16,7 @@ class Subject:
     def notify(self):
         for o in self._observers:
             o.update(self)
+            
 class Event(Subject):
     """ConcreteSubject: holds the state."""
     def __init__(self, title, status="scheduled"):

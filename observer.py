@@ -38,8 +38,16 @@ class DashboardObserver(Observer):
     def update(self, event):
         print("[dashboard]", event.title,
               event.get_state().upper())
+class PushObserver(Observer):
+    def update(self, event):
+        print("[push]", event.title,
+              event.get_state())
+
  
 hackathon = Event("CSE Club Hackathon")
 hackathon.attach(EmailObserver())
 hackathon.attach(DashboardObserver())
 hackathon.set_status("cancelled")
+hackathon.attach(PushObserver())
+hackathon.set_status("moved to Hall B")
+
